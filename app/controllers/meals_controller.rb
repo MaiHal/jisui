@@ -15,7 +15,7 @@ class MealsController < ApplicationController
     @@compare = nil
 
     def index
-        @meals = Meal.all
+        @meals = Meal.order(id: :desc)
     end
 
     def select
