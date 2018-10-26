@@ -8,13 +8,9 @@
     <h1>お店を探しましょう！</h1>
     <p>キーワード</p>
     <%= form_tag("/meal/submit") do %>
-        <input name="name" value="<%= @meal.menu %>">
+        <input name="name">
         <input type="submit" value="検索">
-        
-        <p>カテゴリ</p>
-        <% @categories.each do |category| %>
-            <%= category['categoryName'] %><br>
-        <% end %>
     <% end %>
+    <%= @restaurant['name_kana'] %>
 </body>
 </html>
