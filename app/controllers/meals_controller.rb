@@ -5,7 +5,14 @@ class MealsController < ApplicationController
     require 'pp'
     require 'mechanize'
 
+    @@keyword = ''
+    @@restaurant = nil
+    @@price = nil
+
     def select
+        @restaurant = @@restaurant
+        @price = @@price
+        
     end
 
     def self_search
@@ -14,11 +21,11 @@ class MealsController < ApplicationController
     end
 
     def out_search
-        @meal = Meal.new
-        @categories = recipe_categories['result']['large']
+        @keyword = @@keyword
+        if !@keyword.nil?
+            @restaurants = restaurant_search(@keyword)
+        end
     end
-
-    
 
     def recipe_categories
         agent = Mechanize.new
@@ -27,7 +34,28 @@ class MealsController < ApplicationController
         return results
     end
 
-    def submit
-        redirect_to("/")
+    def restaurant_search(keyword)
+        agent = Mechanize.new
+        url = 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?format=json&key=1e1382208c617774&keyword='+keyword 
+        res = agent.get(url)
+        results = JSON.parse(res.body.force_encoding('UTF-8'))
+        return results['results']['shop']
+    end
+
+    def out_submit
+        @@keyword = params[:keyword]
+        redirect_to("/meal/out_search")
+    end
+
+    def in_submit
+        @@keyword = params[:keyword]
+        redirect_to("/meal/self_search")
+    end
+
+    def confirm
+        @@restaurant = params[:name]
+        @@price = params[:price]
+        puts @@restaurant
+        redirect_to("/meal/select")
     end
 end

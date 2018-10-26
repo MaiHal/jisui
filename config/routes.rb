@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   post "/create" => "users#create"
   get "/meal/self_search" => "meals#self_search"
   get "/meal/out_search" => "meals#out_search"
-  post "/meal/submit" => "meals#submit"
+  post "/meal/out_submit" => "meals#out_submit"
+  post "/meal/in_submit" => "meals#in_submit"
   get "/meal/select" => "meals#select"
+  post "/meal/confirm" => "meals#confirm"
 end
