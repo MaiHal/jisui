@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'tops', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <h1>入力画面</h1>
+    <%= form_tag("/meal/submit") do %>
+        <p>メニュー名</p>
+        <input keyword="keyword">
+        <input type="submit" value="検索">
+        
+        <p>カテゴリ</p>
+        <% @categories.each do |category| %>
+            <%= category['categoryName'] %><br>
+        <% end %>
+    <% end %>
+</body>
+</html>
