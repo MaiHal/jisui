@@ -99,16 +99,38 @@ header {
     float: right;
     padding: 10px
 }
+
 .japanesefood{
     float: left;
+    background-color: #fff;
+    padding: 2% 60% 5% 5%;
+    display: flex;
     position: relative;
+    margin-bottom: 7%;
 }
+
 .japanesefood p{
     position: abolute;
     font-weight: bold;
     font-size: 2em;
     margin-top: 0;
 }
+
+.large {
+    position: abolute;
+}
+.medium {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    display: inline;
+    font-size: 10px;
+}
+
+.clear {
+    clear: left;
+}
+
 .chinesefood{
     float: right;
     position: relative;

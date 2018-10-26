@@ -28,7 +28,6 @@ class MealsController < ApplicationController
 
     def self_search
         @meal = Meal.new
-        @categories = recipe_categories['result']['large']
         @random = random_categories['result'][2]
         puts @random['recipeTitle']
     end
@@ -52,12 +51,14 @@ class MealsController < ApplicationController
         url = 'https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&formatVersion=2&categoryId=14-130-135&applicationId=1025646104690209174'
         res = agent.get(url)
         results = JSON.parse(res.body.force_encoding('UTF-8'))
+        puts results
         return results
     end
 
-    def recipe_categories
+    def recipe_categories(id)
         agent = Mechanize.new
-        res = agent.get('https://app.rakuten.co.jp/services/api/Recipe/CategoryList/20170426?format=json&categoryType=large&applicationId=1025646104690209174')
+        url = "https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&categoryId=#{id}&applicationId=1025646104690209174"
+        res = agent.get(url)
         results = JSON.parse(res.body.force_encoding('UTF-8'))
         return results
     end
