@@ -15,8 +15,9 @@
         <%= form_tag("/meal/confirm") do %>
             <% @restaurants.each do |restaurant| %>
                 <% if restaurant['budget']['average'].to_i != 0 %>
-                    <input type="radio" name="restaurant" value="<%= "#{restaurant['name']}" %>"><%= restaurant['name'] %>(予算: <%= restaurant['budget']['average'].to_i %>円)<br>
-                <% end %>
+                    <input type="radio" name="name" value="<%= "#{restaurant['name']}" %>"><%= restaurant['name'] %>(予算: <%= restaurant['budget']['average'].to_i %>円)<br>
+                    <input type="hidden" name="price" value="<%= "#{restaurant['budget']['average'].to_i}" %>">
+                    <% end %>
             <% end %>
             <input type="submit" value="決定">
         <% end %>

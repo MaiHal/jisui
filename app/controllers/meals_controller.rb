@@ -6,8 +6,13 @@ class MealsController < ApplicationController
     require 'mechanize'
 
     @@keyword = ''
+    @@restaurant = nil
+    @@price = nil
 
     def select
+        @restaurant = @@restaurant
+        @price = @@price
+        
     end
 
     def self_search
@@ -41,6 +46,9 @@ class MealsController < ApplicationController
     end
 
     def confirm
+        @@restaurant = params[:name]
+        @@price = params[:price]
+        puts @@restaurant
         redirect_to("/meal/select")
     end
 end
