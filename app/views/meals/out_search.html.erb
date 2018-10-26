@@ -5,15 +5,20 @@
     <%= javascript_include_tag 'tops', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-    <h1>お店を探しましょう！</h1>
+    <h1>比較したいお店を選んでください。</h1>
     <p>キーワード</p>
     <%= form_tag("/meal/submit") do %>
         <input name="keyword" value="<%= @keyword %>">
         <input type="submit" value="検索">
     <% end %>
     <% if @restaurants %>
-        <% @restaurants.each do |restaurant| %>
-            <%= restaurant['name'] %><br>
+        <%= form_tag("/meal/confirm") do %>
+            <% @restaurants.each do |restaurant| %>
+                <% if restaurant['budget']['average'].to_i != 0 %>
+                    <input type="radio" name="restaurant" value="<%= "#{restaurant['name']}" %>"><%= restaurant['name'] %>(予算: <%= restaurant['budget']['average'].to_i %>円)<br>
+                <% end %>
+            <% end %>
+            <input type="submit" value="決定">
         <% end %>
     <% end %>
 </body>

@@ -7,4 +7,5 @@ Rails.application.routes.draw do
   get "/meal/out_search" => "meals#out_search"
   post "/meal/submit" => "meals#submit"
   get "/meal/select" => "meals#select"
+  post "/meal/confirm" => "meals#confirm"
 end

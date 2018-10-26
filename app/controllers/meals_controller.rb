@@ -39,4 +39,8 @@ class MealsController < ApplicationController
         @@keyword = params[:keyword]
         redirect_to("/meal/out_search")
     end
+
+    def confirm
+        redirect_to("/meal/select")
+    end
 end
