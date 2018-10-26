@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'meals', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'meals', 'data-turbolinks-track': 'reload' %>
+</head>
+<body id="photograph">
+    <div class="content">
+        <div class="main">
+            <p><%= @recipe_title %></p>
+            <p><%= @in_price %></p>
+            <p><img src ="<%= @recipe_image %>"></p>
+            <p><%= @cooking_time %></p>
+        </div>
+    </div>
+</body>
+</html>

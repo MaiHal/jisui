@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post "/meal/in_submit" => "meals#in_submit"
   get "/meal/select" => "meals#select"
   post "/meal/confirm" => "meals#confirm"
+  get "/meal/menu/detail" => "meals#recipe_detail"
 end

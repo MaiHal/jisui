@@ -7,10 +7,17 @@
 <body id="photograph">
     <div class="content">
         <div class="main">
-            <h1>本日のおすすめ　  「カレー」</h1>
+            <p>本日のおすすめ　  「<%= @random['recipeTitle']%>」</p>
+            <%= form_tag("/meal/in_submit") do %>
+                <input type="submit" value="くわしく見る">
+                <input type="hidden" name="title" value="<%= "#{@random['recipeTitle']}" %>">
+                <input type="hidden" name="cost" value="<%= "#{@random['recipeCost']}" %>">
+                <input type="hidden" name="image" value="<%= "#{@random['foodImageUrl']}" %>">
+                <input type="hidden" name="time" value="<%= "#{@random['recipeIndication']}" %>">
+            <% end %>
         </div>
         <section id="food">
-        <h2 class="icon">種類選択</h2>
+        <h2 class="icon">カテゴリ選択</h2>
             <div class="japanesefood"><img src="/categories/japanese_pic.jpg" alt="日本料理" width=300 height=250><p>和食</p>
             </div>
             <div class="chinesefood"><img src="/categories/chinese_pic.jpg" alt="中華料理" width=300 height=250><p>中華</p>
