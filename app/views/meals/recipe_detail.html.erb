@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'meals', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'meals', 'data-turbolinks-track': 'reload' %>
+</head>
+<body id="photograph">
+    <div class="content">
+        <div class="main">
+            <p><%= @recipe_title %></p>
+            <p>約<%= @in_price %>円</p>
+            <p><img src ="<%= @recipe_image %>"></p>
+            <p><%= @cooking_time %></p>
+            <%= form_tag("/meal/in_confirm") do %>
+                <input type="submit" value="これにする！">
+            <% end %>
+        </div>
+    </div>
+</body>
+</html>

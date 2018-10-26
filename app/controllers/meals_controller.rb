@@ -7,17 +7,26 @@ class MealsController < ApplicationController
 
     @@keyword = ''
     @@restaurant = nil
-    @@price = nil
+    @@out_price = nil
+    @@recipe_title = ''
+    @@in_price = nil
+    @@recipe_image = ''
+    @@cooking_time = ''
+    @@compare = nil
 
     def select
         @restaurant = @@restaurant
-        @price = @@price
-        
+        @price = @@out_price
+        @recipe_title = @@recipe_title
+        @in_price = @@in_price
+        @compare = @@compare
     end
 
     def self_search
         @meal = Meal.new
         @categories = recipe_categories['result']['large']
+        @random = random_categories['result'][2]
+        puts @random['recipeTitle']
     end
 
     def out_search
@@ -25,6 +34,21 @@ class MealsController < ApplicationController
         if !@keyword.nil?
             @restaurants = restaurant_search(@keyword)
         end
+    end
+
+    def recipe_detail
+        @recipe_title = @@recipe_title 
+        @in_price = @@in_price
+        @recipe_image = @@recipe_image
+        @cooking_time = @@cooking_time
+    end
+
+    def random_categories
+        agent = Mechanize.new
+        url = 'https://app.rakuten.co.jp/services/api/Recipe/CategoryRanking/20170426?format=json&formatVersion=2&categoryId=14-130-135&applicationId=1025646104690209174'
+        res = agent.get(url)
+        results = JSON.parse(res.body.force_encoding('UTF-8'))
+        return results
     end
 
     def recipe_categories
@@ -48,14 +72,25 @@ class MealsController < ApplicationController
     end
 
     def in_submit
-        @@keyword = params[:keyword]
-        redirect_to("/meal/self_search")
+        @@recipe_title = params[:title]
+        @@in_price = params[:cost]
+        @@recipe_image = params[:image]
+        @@cooking_time = params[:time]
+        redirect_to("/meal/menu/detail")
     end
 
     def confirm
         @@restaurant = params[:name]
-        @@price = params[:price]
-        puts @@restaurant
+        @@out_price = params[:price]
+        redirect_to("/meal/select")
+    end
+
+    def in_confirm
+        redirect_to("/meal/select")
+    end
+
+    def compare
+        @@compare = params[:compare]
         redirect_to("/meal/select")
     end
 end
