@@ -11,7 +11,7 @@
             <%= form_tag("/meal/in_submit") do %>
                 <input type="submit" value="くわしく見る">
                 <input type="hidden" name="title" value="<%= "#{@random['recipeTitle']}" %>">
-                <input type="hidden" name="cost" value="<%= "#{@random['recipeCost']}" %>">
+                <input type="hidden" name="cost" value="<%= "#{@random['recipeCost'].to_i}" %>">
                 <input type="hidden" name="image" value="<%= "#{@random['foodImageUrl']}" %>">
                 <input type="hidden" name="time" value="<%= "#{@random['recipeIndication']}" %>">
             <% end %>

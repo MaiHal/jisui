@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   get "/meal/select" => "meals#select"
   post "/meal/confirm" => "meals#confirm"
   get "/meal/menu/detail" => "meals#recipe_detail"
+  post "/meal/in_confirm" => "meals#in_confirm"
+  post "/meal/compare" => "meals#compare"
 end

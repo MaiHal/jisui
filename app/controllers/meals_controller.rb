@@ -12,10 +12,14 @@ class MealsController < ApplicationController
     @@in_price = nil
     @@recipe_image = ''
     @@cooking_time = ''
+    @@compare = nil
 
     def select
         @restaurant = @@restaurant
         @price = @@out_price
+        @recipe_title = @@recipe_title
+        @in_price = @@in_price
+        @compare = @@compare
     end
 
     def self_search
@@ -78,7 +82,15 @@ class MealsController < ApplicationController
     def confirm
         @@restaurant = params[:name]
         @@out_price = params[:price]
-        puts @@restaurant
+        redirect_to("/meal/select")
+    end
+
+    def in_confirm
+        redirect_to("/meal/select")
+    end
+
+    def compare
+        @@compare = params[:compare]
         redirect_to("/meal/select")
     end
 end

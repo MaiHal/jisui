@@ -11,6 +11,20 @@
             <%= @restaurant %>(予算: <%= @price %>円)
         <% end %>
     </p>
-    <p><%= link_to("自炊", "/meal/self_search") %></p>
+    <p>
+        <%= link_to("自炊", "/meal/self_search") %>
+        <% if @in_price %>
+            <%= @recipe_title %>(予算: <%= @in_price %>円)
+        <% end %>
+    </p>
+    <%= form_tag("/meal/compare") do %>
+        <input type="submit" value="比べる">
+        <input type="hidden" name="compare" value="<%= "#{@price.to_i - @in_price.to_i}" %>">
+    <% end %>
+    <% if @compare %>
+        <p>自炊すると</p>
+        <h1><%= @compare %> 円</h1>
+        <p>節約できるよ！</p>
+    <% end %>
 </body>
 </html>
