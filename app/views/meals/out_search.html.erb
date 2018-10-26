@@ -8,11 +8,13 @@
     <h1>お店を探しましょう！</h1>
     <p>キーワード</p>
     <%= form_tag("/meal/submit") do %>
-        <input name="name">
+        <input name="keyword" value="<%= @keyword %>">
         <input type="submit" value="検索">
     <% end %>
-    <% @restaurants.each do |restaurant| %>
-        <%= restaurant['name'] %><br>
+    <% if @restaurants %>
+        <% @restaurants.each do |restaurant| %>
+            <%= restaurant['name'] %><br>
+        <% end %>
     <% end %>
 </body>
 </html>

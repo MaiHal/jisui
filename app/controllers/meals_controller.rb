@@ -5,6 +5,8 @@ class MealsController < ApplicationController
     require 'pp'
     require 'mechanize'
 
+    @@keyword = ''
+
     def select
     end
 
@@ -14,8 +16,8 @@ class MealsController < ApplicationController
     end
 
     def out_search
-        @restaurants = restaurant_search['results']['shop']
-        puts @restaurant
+        @keyword = @@keyword
+        @restaurants = restaurant_search(@keyword)
     end
 
     def recipe_categories
@@ -25,14 +27,16 @@ class MealsController < ApplicationController
         return results
     end
 
-    def restaurant_search
+    def restaurant_search(keyword)
         agent = Mechanize.new
-        res = agent.get('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?format=json&key=1e1382208c617774&keyword=土間土間')
+        url = 'http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?format=json&key=1e1382208c617774&keyword='+keyword 
+        res = agent.get(url)
         results = JSON.parse(res.body.force_encoding('UTF-8'))
-        return results
+        return results['results']['shop']
     end
 
     def submit
-        redirect_to("/")
+        @@keyword = params[:keyword]
+        redirect_to("/meal/out_search")
     end
 end
