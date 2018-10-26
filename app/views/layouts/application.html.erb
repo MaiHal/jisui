@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Jisui</title>
+    <title>PreJisui</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,26 @@
   </head>
 
   <body>
+    <header>
+        <div class="header-logo">
+          <%= link_to("じすぃ〜", "/posts/index") %>
+        </div>
+        <div class="header-menus">
+          <li>
+            <%= link_to("じすぃ〜とは", "#") %>
+          </li>
+          <li>
+            <%= link_to("新規登録", "#") %>
+          </li>
+          <li>
+            <%= link_to("ログイン", "#") %>
+          </li>
+          <li>
+            <%= link_to("レシピ集", "#") %>
+          </li>
+        </div>
+    </header>
+    <div class="clear"></div>
     <%= yield %>
   </body>
 </html>

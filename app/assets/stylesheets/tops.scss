@@ -1,3 +1,102 @@
 // Place all the styles related to the tops controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+    position: absolute;
+}
+
+header {
+    height: 65px;
+    width: 100%;
+    z-index: 1;
+}
+
+.header-logo {
+  float: left;
+  padding: 2% 0 0 12%;
+  color:#333631;
+  font-size: 32px;
+  line-height: 60px;
+}
+
+.clear {
+    clear: left;
+    clear: right;
+}
+
+.header-logo a{
+  color: #333631;
+  font-size: 22px;
+}
+
+.header-menus {
+  float: right;
+  padding: 3.5% 12% 1% 1%;
+}
+
+.header-menus li {
+  float: left;
+  line-height: 30px;
+  font-size: 13px;
+  color: #333631;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.header-menus a {
+  float: left;
+  font-size: 13px;
+  color: #333631;
+}
+
+.header-menus .fa {
+  padding-right: 5px;
+}
+
+.header-menus input[type="submit"] {
+  padding: 0 20px;
+  float: left;
+  line-height: 64px;
+  color: #333631;
+  margin: 0;
+  font-size: 13px;
+}
+
+  .top-wrapper {
+    position: relative;
+    left: 10%;
+    text-align: center;
+    width: 80%;
+    padding: 150px 0 200px 0;
+    background-image: url(/top.jpg);
+    background-size: cover;
+    color: #fff;
+  }
+
+  .top-wrapper h2 {
+    opacity: 1;
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-weight: normal;
+  }
+
+  .top-wrapper p {
+    opacity: 1;
+    font-size: 20px;
+  }
