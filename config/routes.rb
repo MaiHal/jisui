@@ -12,5 +12,6 @@ Rails.application.routes.draw do
   get "/meal/menu/detail" => "meals#recipe_detail"
   post "/meal/in_confirm" => "meals#in_confirm"
   post "/meal/compare" => "meals#compare"
+  post "/meal/create" => "meals#create"
   get "/meal/history" => "meals#index"
 end
