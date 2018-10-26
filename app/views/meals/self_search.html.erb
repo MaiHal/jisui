@@ -8,8 +8,8 @@
     <h1>入力画面</h1>
     <%= form_tag("/meal/submit") do %>
         <p>メニュー名</p>
-        <input name="name" value="<%= @meal.menu %>">
-        <input type="submit" value="決定">
+        <input keyword="keyword">
+        <input type="submit" value="検索">
         
         <p>カテゴリ</p>
         <% @categories.each do |category| %>

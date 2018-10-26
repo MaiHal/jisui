@@ -5,10 +5,20 @@ class MealsController < ApplicationController
     require 'pp'
     require 'mechanize'
 
-    def search
+    def select
+    end
+
+    def self_search
         @meal = Meal.new
         @categories = recipe_categories['result']['large']
     end
+
+    def out_search
+        @meal = Meal.new
+        @categories = recipe_categories['result']['large']
+    end
+
+    
 
     def recipe_categories
         agent = Mechanize.new
