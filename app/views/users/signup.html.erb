@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'users', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'users', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <%= form_for(@user, url: create_path, method: :post) do |f| %>
+        <p>
+            <%= f.label :name, "アカウント名" %><br>
+            <%= f.text_field :name %>
+        </p>
+        <p>
+            <%= f.label :email, "メールアドレス" %><br>
+            <%= f.email_field :email %>
+        </p>
+        <p>
+            <%= f.label :password, "パスワード" %><br>
+            <%= f.password_field :password %>
+        </p>
+        <p>
+        <%= f.label :password_confirmation, "パスワード確認" %><br>
+            <%= f.password_field :password_confirmation %>
+        </p>
+        <%= f.submit "登録する"%>
+    <% end %>
+</body>
+</html>
