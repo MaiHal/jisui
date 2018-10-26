@@ -14,6 +14,10 @@ class MealsController < ApplicationController
     @@cooking_time = ''
     @@compare = nil
 
+    def index
+        
+    end
+
     def select
         @restaurant = @@restaurant
         @price = @@out_price
