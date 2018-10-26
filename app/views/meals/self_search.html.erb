@@ -25,10 +25,27 @@
                     <img src="/categories/japanese_pic.jpg" alt="日本料理" width=300 height=250>
                 </div>
                 <div class="medium">
-                    <p>野菜たっぷり！！鮭のちゃんちゃん焼き</p>
+                    <p>野菜たっぷり！！鮭のちゃんちゃん焼き
+                    <div class="button-1"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="野菜たっぷり！！鮭のちゃんちゃん焼き">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/24435dd2f2e8891b6ccf1f055ce39d7bc8f8c0e3.68.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    </p>
                     <p>プロ直伝の筑前煮</p>
-                    <p>母の味☆ひっつみ（すいとん）</p>
-                    <p>手軽で簡単☆きりたんぽ鍋</p>
+                    <div class="button-2"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="<%= "#{@random['recipeTitle']}" %>">
+                        <input type="hidden" name="cost" value="<%= "#{@random['recipeCost'].to_i}" %>">
+                        <input type="hidden" name="image" value="<%= "#{@random['foodImageUrl']}" %>">
+                        <input type="hidden" name="time" value="<%= "#{@random['recipeIndication']}" %>">
+                    <% end %>
+                    </div>
+                    <p><a href="#">母の味☆ひっつみ（すいとん）</a></p>
+                    <p><a href="#">手軽で簡単☆きりたんぽ鍋</a></p>
                 </div>
             </div>
             <div class="japanesefood">
@@ -37,10 +54,10 @@
                     <img src="/categories/chinese_pic.jpg" alt="中華料理" width=300 height=250>
                 </div>
                 <div class="medium">
-                    <p>本格！麻婆豆腐 ☆　美味しい　☆</p>
-                    <p>ご飯がすすむ♪　麻婆白菜☆</p>
-                    <p>甜麺醤なしで出来る！簡単 ホイコーロー</p>
-                    <p>簡単おいしい！我が家のチンジャオロース（青椒肉絲）</p>
+                    <p><a href="#">本格！麻婆豆腐 ☆　美味しい　☆</a></p>
+                    <p><a href="#">ご飯がすすむ♪　麻婆白菜☆</a></p>
+                    <p><a href="#">甜麺醤なしで出来る！簡単 ホイコーロー</a></p>
+                    <p><a href="#">簡単おいしい！我が家のチンジャオロース（青椒肉絲）</a></p>
                 </div>
             </div>
             <div class="japanesefood">
@@ -49,10 +66,10 @@
                     <img src="/categories/Italian_pic.jpg" alt="イタリア料理" width=300 height=250>
                 </div>
                 <div class="medium">
-                    <p>簡単！失敗なし！生クリーム不要！濃厚カルボナーラ♪</p>
-                    <p>小麦粉だけで作る生地！すぐできる簡単ピザ</p>
-                    <p>野菜がおいしいミネストローネ</p>
-                    <p>キノコとベーコンの簡単チーズリゾット</p>
+                    <p><a href="#">簡単！失敗なし！生クリーム不要！濃厚カルボナーラ♪</a></p>
+                    <p><a href="#">小麦粉だけで作る生地！すぐできる簡単ピザ</a></p>
+                    <p><a href="#">野菜がおいしいミネストローネ</a></p>
+                    <p><a href="#">キノコとベーコンの簡単チーズリゾット</a></p>
                 </div>
             </div>
             <div class="japanesefood">
@@ -61,10 +78,10 @@
                     <img src="/categories/exept_pic.jpg" alt="その他の人気メニュー" width=300 height=250>
                 </div>
                 <div class="medium">
-                    <p>流出なし！簡単とろ～りチーズのハムカツ♡</p>
-                    <p>サクサクでジューシーな鶏天</p>
-                    <p>ジューシーな餃子☆</p>
-                    <p>プロ直伝！豚の生姜焼き</p>
+                    <p><a href="#">流出なし！簡単とろ～りチーズのハムカツ♡</a></p>
+                    <p><a href="#">サクサクでジューシーな鶏天</a></p>
+                    <p><a href="#">ジューシーな餃子☆</a></p>
+                    <p><a href="#">プロ直伝！豚の生姜焼き</a></p>
                 </div>
             </div>
             <div class="clear"></div>

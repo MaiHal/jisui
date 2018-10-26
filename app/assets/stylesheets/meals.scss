@@ -127,6 +127,23 @@ header {
     font-size: 10px;
 }
 
+.medium a {
+    text-decoration: none;
+    text-decoration-color: black;   
+}
+
+.button-1 {
+    position: absolute;
+    top: 3%;
+    left: 102%;
+}
+
+.button-2 {
+    position: absolute;
+    top: 25%;
+    left: 102%;
+}
+
 .clear {
     clear: left;
 }
