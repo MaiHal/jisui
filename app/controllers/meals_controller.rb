@@ -14,7 +14,8 @@ class MealsController < ApplicationController
     end
 
     def out_search
-        @resutaurant = restaurant_search['results']
+        @restaurants = restaurant_search['results']['shop']
+        puts @restaurant
     end
 
     def recipe_categories
@@ -26,9 +27,8 @@ class MealsController < ApplicationController
 
     def restaurant_search
         agent = Mechanize.new
-        res = agent.get('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?format=json&key=1e1382208c617774&keyword=土間土間 飯田橋東口店')
+        res = agent.get('http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?format=json&key=1e1382208c617774&keyword=土間土間')
         results = JSON.parse(res.body.force_encoding('UTF-8'))
-        puts results['results']['shop'][30]
         return results
     end
 

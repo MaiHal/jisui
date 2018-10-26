@@ -11,6 +11,8 @@
         <input name="name">
         <input type="submit" value="検索">
     <% end %>
-    <%= @restaurant['name_kana'] %>
+    <% @restaurants.each do |restaurant| %>
+        <%= restaurant['name'] %><br>
+    <% end %>
 </body>
 </html>
