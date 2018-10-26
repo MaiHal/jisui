@@ -11,13 +11,13 @@
         </div>
         <section id="food">
         <h2 class="icon">種類選択</h2>
-            <div class="japanesefood"><a href=""><img src="/categories/japanese_pic.jpg" alt="日本料理" width=300 height=250><p>和食</p>
+            <div class="japanesefood"><img src="/categories/japanese_pic.jpg" alt="日本料理" width=300 height=250><p>和食</p>
             </div>
             <div class="chinesefood"><img src="/categories/chinese_pic.jpg" alt="中華料理" width=300 height=250><p>中華</p>
             </div>
             <div class="italianfood"><img src="/categories/Italian_pic.jpg" alt="イタリア料理" width=300 height=250><p>イタリアン</p>
             </div>
-            <div class="exeptfood"><img src="/categories/exept_pic.jpg" alt="その他の人気メニュー" width=300 height=250><p>その他の人気メニュー
+            <div class="exeptfood"><img src="/categories/exept_pic.jpg" alt="その他の人気メニュー" width=300 height=250><p><%= @categories[0]['categoryName'] %></p>
             </div>
             </ul>
         </section>
