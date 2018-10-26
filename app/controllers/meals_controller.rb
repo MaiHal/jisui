@@ -111,4 +111,14 @@ class MealsController < ApplicationController
             render("meal/select")
         end
     end
+
+    def destroy
+        @meal = Meal.find_by(id: params[:id])
+        puts @meal
+        if @meal.destroy
+            redirect_to("/meal/history")
+        else
+            redirect_to("/meal/history")
+        end
+    end      
 end

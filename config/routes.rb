@@ -14,4 +14,5 @@ Rails.application.routes.draw do
   post "/meal/compare" => "meals#compare"
   post "/meal/create" => "meals#create"
   get "/meal/history" => "meals#index"
+  post "meals/:id/destroy" => "meals#destroy"
 end
