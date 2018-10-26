@@ -22,7 +22,9 @@ class MealsController < ApplicationController
 
     def out_search
         @keyword = @@keyword
-        @restaurants = restaurant_search(@keyword)
+        if !@keyword.nil?
+            @restaurants = restaurant_search(@keyword)
+        end
     end
 
     def recipe_categories
@@ -40,9 +42,14 @@ class MealsController < ApplicationController
         return results['results']['shop']
     end
 
-    def submit
+    def out_submit
         @@keyword = params[:keyword]
         redirect_to("/meal/out_search")
+    end
+
+    def in_submit
+        @@keyword = params[:keyword]
+        redirect_to("/meal/self_search")
     end
 
     def confirm

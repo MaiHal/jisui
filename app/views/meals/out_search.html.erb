@@ -7,7 +7,7 @@
 <body>
     <h1>比較したいお店を選んでください。</h1>
     <p>キーワード</p>
-    <%= form_tag("/meal/submit") do %>
+    <%= form_tag("/meal/out_submit") do %>
         <input name="keyword" value="<%= @keyword %>">
         <input type="submit" value="検索">
     <% end %>
