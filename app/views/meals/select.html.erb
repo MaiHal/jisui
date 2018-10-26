@@ -31,6 +31,7 @@
             <input type="hidden" name="title" value="<%= "#{@recipe_title}" %>">
             <input type="hidden" name="out_price" value="<%= "#{@price.to_i}" %>">
             <input type="hidden" name="in_price" value="<%= "#{@in_price.to_i}" %>">
+            <input type="hidden" name="diff_price" value="<%= "#{@compare.to_i}" %>">
         <% end %>
     <% end %>
 </body>

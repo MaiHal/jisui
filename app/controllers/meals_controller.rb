@@ -103,7 +103,8 @@ class MealsController < ApplicationController
             menu: params[:title],
             out_price: params[:out_price],
             in_price: params[:in_price],
-            meal_date: params[:meal_date]
+            meal_date: params[:meal_date],
+            diff_price: params[:diff_price],
         )
         if @meal.save
             redirect_to("/meal/history")
