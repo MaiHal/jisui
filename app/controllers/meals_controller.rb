@@ -14,6 +14,10 @@ class MealsController < ApplicationController
     @@cooking_time = ''
     @@compare = nil
 
+    def index
+        @meals = Meal.all
+    end
+
     def select
         @restaurant = @@restaurant
         @price = @@out_price
@@ -93,4 +97,28 @@ class MealsController < ApplicationController
         @@compare = params[:compare]
         redirect_to("/meal/select")
     end
+
+    def create
+        @meal = Meal.new(
+            menu: params[:title],
+            out_price: params[:out_price],
+            in_price: params[:in_price],
+            meal_date: params[:meal_date]
+        )
+        if @meal.save
+            redirect_to("/meal/history")
+        else
+            render("meal/select")
+        end
+    end
+
+    def destroy
+        @meal = Meal.find_by(id: params[:id])
+        puts @meal
+        if @meal.destroy
+            redirect_to("/meal/history")
+        else
+            redirect_to("/meal/history")
+        end
+    end      
 end
