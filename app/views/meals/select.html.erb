@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'tops', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <p>
+        <%= link_to("外食", "/meal/out_search") %> 
+        <% if @restaurant %>
+            <%= @restaurant %>(予算: <%= @price %>円)
+        <% end %>
+    </p>
+    <p>
+        <%= link_to("自炊", "/meal/self_search") %>
+        <% if @in_price %>
+            <%= @recipe_title %>(予算: <%= @in_price %>円)
+        <% end %>
+    </p>
+    <%= form_tag("/meal/compare") do %>
+        <input type="submit" value="比べる">
+        <input type="hidden" name="compare" value="<%= "#{@price.to_i - @in_price.to_i}" %>">
+    <% end %>
+    <% if @compare && @restaurant && @in_price %>
+        <p>自炊すると</p>
+        <h1><%= @compare %> 円</h1>
+        <p>節約できるよ！</p>
+        <%= form_tag("/meal/create") do %>
+            <p>これを<input type="date" name="meal_date" value="2018-10-27">の節約として</p>
+            <input type="submit" value="記録する">
+            <input type="hidden" name="title" value="<%= "#{@recipe_title}" %>">
+            <input type="hidden" name="out_price" value="<%= "#{@price.to_i}" %>">
+            <input type="hidden" name="in_price" value="<%= "#{@in_price.to_i}" %>">
+            <input type="hidden" name="diff_price" value="<%= "#{@compare.to_i}" %>">
+        <% end %>
+    <% end %>
+</body>
+</html>

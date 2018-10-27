@@ -1,0 +1,269 @@
+// Place all the styles related to the meals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+* {
+   box-sizing: border-box;
+}
+
+a {
+   text-decoration: none;
+}
+
+ul, li {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+}
+
+body {
+   width: 100%;
+   margin: 0;
+   position: absolute;
+   background-color:#fff8cd;
+}
+
+header {
+   height: 65px;
+   width: 100%;
+   z-index: 1;
+}
+
+.header-logo {
+ float: left;
+ padding: 2% 0 0 12%;
+ color:#333631;
+ font-size: 32px;
+ line-height: 60px;
+}
+
+.clear {
+   clear: left;
+   clear: right;
+}
+
+.header-logo a{
+ color: #333631;
+ font-size: 22px;
+}
+
+.header-menus {
+ float: right;
+ padding: 3.5% 12% 1% 1%;
+}
+
+.header-menus li {
+ float: left;
+ line-height: 30px;
+ font-size: 13px;
+ color: #333631;
+ padding-left: 15px;
+ padding-right: 15px;
+}
+
+.header-menus a {
+ float: left;
+ font-size: 13px;
+ color: #333631;
+}
+
+.header-menus .fa {
+ padding-right: 5px;
+}
+
+.header-menus input[type="submit"] {
+ padding: 0 20px;
+ float: left;
+ line-height: 64px;
+ color: #333631;
+ margin: 0;
+ font-size: 13px;
+}
+
+.reserch{
+    width: 400px;
+    margin: 0 auto;
+}
+
+
+.content{
+    width: 800px;
+    margin: 0 auto
+}
+.main{
+    width: 600px;
+    margin: auto;
+    background-color:#eee8aa;
+    text-align: center;
+}
+.main .susume{
+    float: right;
+    padding: 10px
+}
+
+.japanesefood{
+    float: left;
+    background-color: #fff;
+    padding: 2% 60% 5% 5%;
+    display: flex;
+    position: relative;
+    margin-bottom: 7%;
+}
+
+.japanesefood p{
+    position: abolute;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 0;
+}
+
+.large {
+    position: abolute;
+}
+.medium {
+    position: absolute;
+    top: 30%;
+    left: 45%;
+    display: inline;
+    font-size: 10px;
+}
+
+.medium a {
+    text-decoration: none;
+    text-decoration-color: black;   
+}
+
+.button-11 {
+    position: absolute;
+    top: 3%;
+    left: 102%;
+}
+
+.button-12 {
+    position: absolute;
+    top: 28%;
+    left: 47%;
+}
+
+.button-13 {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+}
+
+.button-14 {
+    position: absolute;
+    top: 78%;
+    left: 70%;
+}
+
+.button-21 {
+    position: absolute;
+    top: 3%;
+    left: 102%;
+}
+
+.button-22 {
+    position: absolute;
+    top: 28%;
+    left: 47%;
+}
+
+.button-23 {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+}
+
+.button-24 {
+    position: absolute;
+    top: 78%;
+    left: 70%;
+}
+
+.button-31 {
+    position: absolute;
+    top: 3%;
+    left: 102%;
+}
+
+.button-32 {
+    position: absolute;
+    top: 28%;
+    left: 47%;
+}
+
+.button-33 {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+}
+
+.button-34 {
+    position: absolute;
+    top: 78%;
+    left: 70%;
+}
+
+.button-41 {
+    position: absolute;
+    top: 3%;
+    left: 102%;
+}
+
+.button-42 {
+    position: absolute;
+    top: 28%;
+    left: 47%;
+}
+
+.button-43 {
+    position: absolute;
+    top: 53%;
+    left: 76%;
+}
+
+.button-44 {
+    position: absolute;
+    top: 78%;
+    left: 70%;
+}
+
+.clear {
+    clear: left;
+}
+
+.chinesefood{
+    float: right;
+    position: relative;
+}
+.chinesefood p{
+    position: abolute;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 0;
+}
+.italianfood{
+    float: left;
+    padding-top: 20px;
+    position: relative;
+}
+.italianfood p{
+    position: abolute;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 0;
+}
+.exeptfood{
+    float: right;
+    padding-top: 20px;
+    position: relative;
+}
+.exeptfood p{
+    position: abolute;
+    font-weight: bold;
+    font-size: 2em;
+    margin-top: 0;
+}
+.content img:hover {
+    opacity: 0.8;
+}

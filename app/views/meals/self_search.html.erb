@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'meals', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'meals', 'data-turbolinks-track': 'reload' %>
+</head>
+<body id="photograph">
+    <div class="content">
+        <div class="main">
+            <p>本日のおすすめ</p>　  
+            <h2>「<%= @random['recipeTitle']%>」</h2>
+            <%= form_tag("/meal/in_submit") do %>
+                <input type="submit" value="くわしく見る">
+                <input type="hidden" name="title" value="<%= "#{@random['recipeTitle']}" %>">
+                <input type="hidden" name="cost" value="<%= "#{@random['recipeCost'].to_i}" %>">
+                <input type="hidden" name="image" value="<%= "#{@random['foodImageUrl']}" %>">
+                <input type="hidden" name="time" value="<%= "#{@random['recipeIndication']}" %>">
+            <% end %>
+        </div>
+        <section id="food">
+        <h2 class="icon">カテゴリ選択</h2>
+            <div class="japanesefood">
+                <div class="large">
+                    <p>和食</p>
+                    <img src="/categories/japanese_pic.jpg" alt="日本料理" width=300 height=250>
+                </div>
+                <div class="medium">
+                    <p>野菜たっぷり！！鮭のちゃんちゃん焼き
+                    <div class="button-11"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="野菜たっぷり！！鮭のちゃんちゃん焼き">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/24435dd2f2e8891b6ccf1f055ce39d7bc8f8c0e3.68.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    </p>
+                    <p>プロ直伝の筑前煮</p>
+                    <div class="button-12">
+                    <%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="プロ直伝の筑前煮">
+                        <input type="hidden" name="cost" value="700">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/2d9f8eecda9b9569ae3512521f7f6450008df4b7.95.1.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    <p>母の味☆ひっつみ（すいとん）</p>
+                    <div class="button-13">
+                    <%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="母の味☆ひっつみ（すいとん）">
+                        <input type="hidden" name="cost" value="300">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/a82686d74288041b88e6dafe5d527f2bbf65cd10.13.1.3.2.jpg">
+                        <input type="hidden" name="time" value="約60分">
+                    <% end %>
+                    </div>
+                    <p>手軽で簡単☆きりたんぽ鍋</p>
+                    <div class="button-14">
+                    <%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="手軽で簡単☆きりたんぽ鍋">
+                        <input type="hidden" name="cost" value="1000">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/481263df6d60c8602ee666579e9eec3eabe7bc6a.86.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約60分">
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="japanesefood">
+                <div class="large">
+                    <p>中華</p>
+                    <img src="/categories/chinese_pic.jpg" alt="中華料理" width=300 height=250>
+                </div>
+                <div class="medium">
+                    <p>本格！麻婆豆腐 ☆　美味しい　☆</p>
+                    <div class="button-21"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="本格！麻婆豆腐 ☆　美味しい　☆">
+                        <input type="hidden" name="cost" value="300">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/767c436690a636fa01697b6e9b8d399a9fddcb43.05.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約15分">
+                    <% end %>
+                    </div>
+                    <p>ご飯がすすむ♪　麻婆白菜☆</p>
+                    <div class="button-22"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="ご飯がすすむ♪　麻婆白菜☆">
+                        <input type="hidden" name="cost" value="600">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/bf2c8c78af226cd0a61b639fb31b59c11db89ec1.92.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約15分">
+                    <% end %>
+                    </div>
+                    <p>甜麺醤なしで出来る！簡単 ホイコーロー</p>
+                    <div class="button-23"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="甜麺醤なしで出来る！簡単 ホイコーロー">
+                        <input type="hidden" name="cost" value="300">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/a1e10faff3c822e32a92aa8531801e62828eaad2.47.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約10分">
+                    <% end %>
+                    </div>
+                    <p>簡単おいしい！我が家のチンジャオロース（青椒肉絲）</p>
+                    <div class="button-24"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="簡単おいしい！我が家のチンジャオロース（青椒肉絲）">
+                        <input type="hidden" name="cost" value="300">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/99344849a9629cc1e6a22ba9bc4b0eb23f89c410.68.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約15分">
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="japanesefood">
+                <div class="large">
+                    <p>イタリアン</p>
+                    <img src="/categories/Italian_pic.jpg" alt="イタリア料理" width=300 height=250>
+                </div>
+                <div class="medium">
+                    <p>簡単！失敗なし！生クリーム不要！濃厚カルボナーラ♪</p>
+                    <div class="button-31"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="簡単！失敗なし！生クリーム不要！濃厚カルボナーラ♪">
+                        <input type="hidden" name="cost" value="100">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/b9cc124420f61fdf2cb65d41592da944fb09a88e.70.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約5分">
+                    <% end %>
+                    </div>
+                    <p>小麦粉だけで作る生地！すぐできる簡単ピザ</p>
+                    <div class="button-32"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="小麦粉だけで作る生地！すぐできる簡単ピザ">
+                        <input type="hidden" name="cost" value="300">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/f9e3af3dee331763b98c8fdc404f67e8bccda38b.57.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    <p>野菜がおいしいミネストローネ</p>
+                    <div class="button-33"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="野菜がおいしいミネストローネ">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/978cd0c19a0e018ef10438f0f883fa702ab8b65f.09.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約40分">
+                    <% end %>
+                    </div>
+                    <p>キノコとベーコンの簡単チーズリゾット</p>
+                    <div class="button-34"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="キノコとベーコンの簡単チーズリゾット">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/37f0f15c50725158dc241078b78b4b58724487c5.29.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="japanesefood">
+                <div class="large">
+                    <p>人気メニュー</p>
+                    <img src="/categories/exept_pic.jpg" alt="その他の人気メニュー" width=300 height=250>
+                </div>
+                <div class="medium">
+                    <p>流出なし！簡単とろ～りチーズのハムカツ♡</p>
+                    <div class="button-41"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="流出なし！簡単とろ～りチーズのハムカツ♡">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/cf65493fa2e3a90dd61bff153dbafbf066d7d8ae.89.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    <p>サクサクでジューシーな鶏天</p>
+                    <div class="button-42"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="サクサクでジューシーな鶏天">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/351b079888275ba83ff1b9f0e61941503756d76f.85.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    <p>ジューシーな餃子☆</p>
+                    <div class="button-43"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="ジューシーな餃子☆">
+                        <input type="hidden" name="cost" value="500">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/cec263837c9c6768cf2a0681d5821560c9004983.86.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約30分">
+                    <% end %>
+                    </div>
+                    <p>プロ直伝！豚の生姜焼き</p>
+                    <div class="button-44"><%= form_tag("/meal/in_submit") do %>
+                        <input type="submit" value="くわしく見る">
+                        <input type="hidden" name="title" value="プロ直伝！豚の生姜焼き">
+                        <input type="hidden" name="cost" value="300">
+                        <input type="hidden" name="image" value="https://image.space.rakuten.co.jp/d/strg/ctrl/3/523177236da9ad737e95ac2d0be83e4e991f9373.46.2.3.2.jpg">
+                        <input type="hidden" name="time" value="約10分">
+                    <% end %>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </section>
+    </div>
+</body>
+</html>

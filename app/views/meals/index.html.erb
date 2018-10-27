@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag    'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'tops', 'data-turbolinks-track': 'reload' %>
+</head>
+<body>
+    <h1>履歴</h1>
+    <% @meals.each do |meal| %>
+        <h3><%= meal.meal_date.year %>/<%= meal.meal_date.month %>/<%= meal.meal_date.day %> <%= meal.menu %></h3>
+        <p>
+            差額 = <%= meal.out_price %> 円 - <%= meal.in_price %> 円<br>
+            　　 = <%= meal.out_price.to_i - meal.in_price.to_i %> 円 節約！
+        </p>
+        <%= link_to("削除","/meals/#{meal.id}/destroy", {method:"post"}) %>
+    <% end %>
+</body>
+</html>
