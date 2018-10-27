@@ -4,15 +4,21 @@
     <%= stylesheet_link_tag    'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'tops', 'data-turbolinks-track': 'reload' %>
 </head>
-<body>
-    <h1>履歴</h1>
+<body id=rireki0>
+    <div>
+    <img src="/categories/history.png" width="960" height="200">
+  </div>
     <% @meals.each do |meal| %>
+    <div class="rireki">
         <h3><%= meal.meal_date.year %>/<%= meal.meal_date.month %>/<%= meal.meal_date.day %> <%= meal.menu %></h3>
         <p>
             差額 = <%= meal.out_price %> 円 - <%= meal.in_price %> 円<br>
-            　　 = <%= meal.out_price.to_i - meal.in_price.to_i %> 円 節約！
         </p>
+          <p style="color:blue; font-size:24px">
+            　　= <%= meal.out_price.to_i - meal.in_price.to_i %> 円 節約！
+      </p>
         <%= link_to("削除","/meals/#{meal.id}/destroy", {method:"post"}) %>
+      </div>
     <% end %>
 </body>
 </html>
