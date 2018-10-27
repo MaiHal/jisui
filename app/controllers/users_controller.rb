@@ -16,9 +16,11 @@ class UsersController < ApplicationController
     def detail
         meals = Meal.all
         @sum_price = 0
+        @sum_count = 0
         meals.each do |meal|
             if meal.meal_date.year == 2018 && meal.meal_date.month == 10
-                @sum_price += meal.diff_price.to_i  
+                @sum_price += meal.diff_price.to_i
+                @sum_count += 1
             end
         end
     end
