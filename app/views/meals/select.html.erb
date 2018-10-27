@@ -8,32 +8,50 @@
     <h2>compare</h2>
     </div>
     <p>
-        <%= link_to("外食", "/meal/out_search") %> 
+        <div class="out_button">
+            <a href="/meal/out_search"><img src="/buttons/out_button.png"></a>
+        </div>
         <% if @restaurant %>
-            <%= @restaurant %>(予算: <%= @price %>円)
+            <div class="out">
+                <%= @restaurant %>(予算: <%= @price %>円)
+            </div>
         <% end %>
     </p>
     <p>
-        <%= link_to("自炊", "/meal/self_search") %>
+        <div class="in_button">
+            <a href="/meal/self_search"><img src="/buttons/in_button.png"></a>
+        </div>
         <% if @in_price %>
-            <%= @recipe_title %>(予算: <%= @in_price %>円)
+            <div class="out">
+                <%= @recipe_title %>(予算: <%= @in_price %>円)
+            </div>
         <% end %>
     </p>
-    <%= form_tag("/meal/compare") do %>
-        <input type="submit" value="比べる">
-        <input type="hidden" name="compare" value="<%= "#{@price.to_i - @in_price.to_i}" %>">
-    <% end %>
-    <% if @compare && @restaurant && @in_price %>
-        <p>自炊すると</p>
-        <h1><%= @compare %> 円</h1>
-        <p>節約できるよ！</p>
-        <%= form_tag("/meal/create") do %>
-            <p>これを<input type="date" name="meal_date" value="2018-10-27">の節約として</p>
-            <input type="submit" value="記録する">
-            <input type="hidden" name="title" value="<%= "#{@recipe_title}" %>">
-            <input type="hidden" name="out_price" value="<%= "#{@price.to_i}" %>">
-            <input type="hidden" name="in_price" value="<%= "#{@in_price.to_i}" %>">
-            <input type="hidden" name="diff_price" value="<%= "#{@compare.to_i}" %>">
+    <% if @restaurant && @in_price %>
+        <div class="compare_button">
+            <%= form_tag("/meal/compare") do %>
+                <input type="submit" value="比べる">
+                <input type="hidden" name="compare" value="<%= "#{@price.to_i - @in_price.to_i}" %>">
+            <% end %>
+        </div>
+        <% if @compare %>
+            <div class="out">
+                <p>自炊すると</p>
+                <h1><%= @compare %> 円</h1>
+                <p>節約できるよ！</p>
+            </div>
+            <div class="out">
+            <%= form_tag("/meal/create") do %>
+                <p>これを<input type="date" name="meal_date" value="2018-10-27">の節約として</p>
+                <div class="write">
+                <input type="submit" value="記録する">
+                </div>
+                <input type="hidden" name="title" value="<%= "#{@recipe_title}" %>">
+                <input type="hidden" name="out_price" value="<%= "#{@price.to_i}" %>">
+                <input type="hidden" name="in_price" value="<%= "#{@in_price.to_i}" %>">
+                <input type="hidden" name="diff_price" value="<%= "#{@compare.to_i}" %>">
+            <% end %>
+            </div>
         <% end %>
     <% end %>
 </body>
