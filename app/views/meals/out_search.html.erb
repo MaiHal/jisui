@@ -1,26 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <%= stylesheet_link_tag    'tops', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'tops', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'select', media: 'all', 'data-turbolinks-track': 'reload' %>
 </head>
 <body>
-    <h1>比較したいお店を選んでください。</h1>
-    <p>キーワード</p>
+    <div class="rest-wrapper">
+        <h2>search shop</h2>
+    </div>
+    <div class="out">
+    <h1>キーワードを入力してください。</h1>
+    <div class="kensaku">
     <%= form_tag("/meal/out_submit") do %>
         <input name="keyword" value="<%= @keyword %>">
         <input type="submit" value="検索">
     <% end %>
-    <% if @restaurants %>
-        <%= form_tag("/meal/confirm") do %>
-            <% @restaurants.each do |restaurant| %>
-                <% if restaurant['budget']['average'].to_i != 0 %>
-                    <input type="radio" name="name" value="<%= "#{restaurant['name']}" %>"><%= restaurant['name'] %>(予算: <%= restaurant['budget']['average'].to_i %>円)<br>
-                    <input type="hidden" name="price" value="<%= "#{restaurant['budget']['average'].to_i}" %>">
-                    <% end %>
+    </div>
+        <div class="radio">
+        <% if @restaurants %>
+            <%= form_tag("/meal/confirm") do %>
+                <% @restaurants.each do |restaurant| %>
+                    <% if restaurant['budget']['average'].to_i != 0 %>
+                        <input type="radio" name="name" value="<%= "#{restaurant['name']}" %>"><%= restaurant['name'] %>(予算: <%= restaurant['budget']['average'].to_i %>円)<br>
+                        <input type="hidden" name="price" value="<%= "#{restaurant['budget']['average'].to_i}" %>">
+                        <% end %>
+                <% end %>
+                <div class="kettei">
+                <input type="submit" value="決定">
+                </div>
             <% end %>
-            <input type="submit" value="決定">
         <% end %>
-    <% end %>
+    </div>
+    </div>
 </body>
 </html>
