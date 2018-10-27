@@ -13,6 +13,7 @@ Rails.application.config.assets.precompile += %w( users.css )
 Rails.application.config.assets.precompile += %w( users.js )
 Rails.application.config.assets.precompile += %w( meals.css )
 Rails.application.config.assets.precompile += %w( meals.js )
+Rails.application.config.assets.precompile += %w( select.css )
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
