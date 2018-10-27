@@ -17,9 +17,6 @@ ActiveRecord::Schema.define(version: 2018_10_26_200730) do
     t.datetime "meal_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "out_price"
-    t.integer "in_price"
-    t.integer "user_id"
     t.integer "diff_price"
   end
 
