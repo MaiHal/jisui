@@ -125,21 +125,56 @@ header {
 
 .sum-display {
     width: 70%;
-    background-color:#f0e68c;
+    background-color:#fff;
     margin-left: 15%;
 }
 
 .sum-display p {
     padding-left: 10%;
+    color: #4d4d4d;
+    padding-top: 20px;
 }
 
 .sum-display h2 {
     font-size: 70px;
     text-align:center;
+    color: #4d4d4d;
 }
 
 .sum-display h6 {
     font-size: 15px;
     padding-left: 10%;
     margin: 0;
+    color: #4d4d4d;
+    padding-bottom: 20px;
 }
+
+.select-wrapper {
+    position: relative;
+    left: 10%;
+    text-align: left;
+    width: 80%;
+    padding: 5px 0 5px 0;
+    background-image: url(/myheader.jpg);
+    background-size: cover;
+    color: #fff;
+    margin-bottom: 50px;
+    opacity: 0.9;
+  }
+
+
+  .select-wrapper h2 {
+    padding-left: 5%;
+    opacity: 1;
+    font-size: 50px;
+    letter-spacing: 5px;
+    font-weight: normal;
+  }
+
+  .select-wrapper img {
+    height: 80px;
+    width: 80px;
+    margin-bottom: -50px;
+    position: relative;
+    left: 46%;
+  }
